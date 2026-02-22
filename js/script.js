@@ -5,22 +5,30 @@ function renderDashboard() {
         }
 
 let jobs = [
-            { id: 1, company: 'Mobile First Corp', position: 'React Native Developer', location: 'Remote', type: 'Full-time', salary: '$130,000 - $175,000', description: 'Build cross-platform mobile applications using React Native. Work on products used by millions worldwide.', status: 'pending' },
-            { id: 2, company: 'WebFlow Agency', position: 'Web Designer & Developer', location: 'Los Angeles, CA', type: 'Part-time', salary: '$80,000 - $120,000', description: 'Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.', status: 'pending' },
-            { id: 3, company: 'Tech Giant Inc', position: 'Software Engineer', location: 'San Francisco, CA', type: 'Full-time', salary: '$150,000 - $200,000', description: 'Develop scalable web applications using the latest technologies in a fast-paced environment.', status: 'pending' },
-            { id: 4, company: 'Startup Ventures', position: 'Frontend Developer', location: 'Remote', type: 'Full-time', salary: '$100,000 - $140,000', description: 'Build intuitive user interfaces with React, Tailwind, and other modern tools for innovative products.', status: 'pending' },
-            { id: 5, company: 'Data Solutions Ltd', position: 'Data Analyst', location: 'New York, NY', type: 'Full-time', salary: '$90,000 - $130,000', description: 'Analyze large datasets to provide insights and drive business decisions using SQL and Python.', status: 'pending' },
-            { id: 6, company: 'Cloud Services Co', position: 'DevOps Engineer', location: 'Seattle, WA', type: 'Full-time', salary: '$140,000 - $180,000', description: 'Manage cloud infrastructure and automate deployment processes with AWS, Docker, and Kubernetes.', status: 'pending' },
-            { id: 7, company: 'AI Innovations', position: 'Machine Learning Engineer', location: 'Remote', type: 'Full-time', salary: '$120,000 - $160,000', description: 'Design and implement machine learning models to solve complex problems in various domains.', status: 'pending' },
-            { id: 8, company: 'Finance Tech', position: 'Backend Developer', location: 'Chicago, IL', type: 'Full-time', salary: '$110,000 - $150,000', description: 'Build robust server-side applications using Node.js, Express, and databases like MongoDB.', status: 'pending' }
+            { id: 1, company: 'Mobile First Corp', position: 'React Native Developer', location: 'Remote', type: 'Full-time', salary: '$130,000 - $175,000', 
+                   description: 'Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.', status: 'pending' },
+            { id: 2, company: 'WebFlow Agency', position: 'Web Designer & Developer', location: 'Los Angeles, CA', type: 'Part-time', salary: '$80,000 - $120,000', 
+                   description: 'Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.', status: 'pending' },
+            { id: 3, company: 'DataViz Solution', position: 'Data Visualization Specialist', location: 'Boston, MA', type: 'Full-time', salary: '$125,000 - $165,000', 
+                   description: 'Transform complex data into compelling visualizations. Required skills: D3.js , React , and strong analytical thinking', status: 'pending' },
+            { id: 4, company: 'CloudFirst Inc', position: 'Backend Developer', location: 'Seattle, WA', type: 'Full-time', salary: '$140,000 - $190,000', 
+                   description: 'Design and maintain scalable backend systems using Python and AWS.  Work with modern DeveOps practices and Cloud infrastructure .', status: 'pending' },
+            { id: 5, company: 'Innovation Labs', position: 'UI/UX Engineer', location: 'Austin, TX', type: 'Full-time', salary: '$110,000 - $150,000',  
+                   description: 'Create beautiful and functional user interfaces for our suite of products. Strong design skills and fronted development expertise required', status: 'pending' },
+            { id: 6, company: 'MegaCrop Solutions', position: 'Javascript Developer', location: 'New York, NY', type: 'Full-time', salary: '$130,000 - $170,000', 
+                   description: 'Build enterprise application with JavaScript and modern frameworks. We offer competitive compensation health, insurance and professional development opportunities. ', status: 'pending' },
+            { id: 7, company: 'StartupXYZ', position: 'Full Stack Engineer', location: 'Remote', type: 'Full-time', salary: '$120,000 - $160,000', 
+                   description: 'Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equlty package Included. ', status: 'pending' },
+            { id: 8, company: 'TechCrop Industries', position: 'Senior Fronted Developer', location: 'San Francisco, CA', type: 'Full-time', salary: '$130,000 - $175,000', 
+                   description: 'We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects. ', status: 'pending' }
         ];
 
     let currentTab = 'pending';
 
     function renderJobs() {
             const filtered = jobs.filter(j => j.status === currentTab);
-            const count = filtered.length;
-            document.getElementById('jobs-count').textContent = `${count} jobs`;
+             const count = filtered.length;
+             document.getElementById('jobs-count').textContent = `${count} jobs`;
             const container = document.getElementById('jobs-container');
             container.innerHTML = '';
             if (count === 0) {
@@ -43,10 +51,12 @@ let jobs = [
                     card.innerHTML = `
                         <div class="flex justify-between items-start">
                             <h3 class="card-title">${job.company}</h3>
-                            <button class="btn btn-ghost btn-sm" onclick="deleteJob(${job.id})">🗑️</button>
+                            <button class="btn btn-ghost btn-sm" onclick="deleteJob(${job.id})">
+                                  <i class="fa-regular fa-trash-can"></i>
+                            </button>
                         </div>
                         <p class="font-medium">${job.position}</p>
-                        <p class="text-sm text-gray-600">${job.location} - ${job.type} - ${job.salary}</p>
+                        <p class="text-sm text-gray-600">${job.location}  .  ${job.type}  .  ${job.salary}</p>
                         <p class="text-sm mt-2 btn w-1/6  text-gray-700">${job.status === 'pending' ? 'NOT APPLIED' : job.status.toUpperCase()}</p>
                         <p class="text-sm mt-2  text-gray-600">${job.description}</p>
                         <div class="card-actions justify-start mt-4">
@@ -62,7 +72,7 @@ let jobs = [
         }
 
 
-                function setTab(tab) {
+            function setTab(tab) {
             currentTab = tab;
             updateTabs();
             renderJobs();
