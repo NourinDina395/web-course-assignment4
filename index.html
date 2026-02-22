@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,68 +35,64 @@
 
 </head>
 
-<body class="min-h-screen max-w-4xl bg-[#F8FAFC] mx-auto">
+<body class="min-h-screen bg-[#F8FAFC]">
 
- 
-    <header class="max-w-4xl border border-base-100 top-0 bg-base-100 pt-4 w-[1110px] h-[200px] ">
+<div class="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-8">
 
-         <div class="heading">
-            <h1 class="text-3xl font-bold text-[#002C5C] mb-4">Job Application Tracker</h1>
-         </div>
+  <!-- Header & Stats -->
+  <header class="mb-10">
+    <h1 class="text-3xl sm:text-4xl font-bold text-[#002C5C] mb-6">Job Application Tracker</h1>
 
-     <!--Card portion-->
-      <div class="stats stats-vertical sm:stats-horizontal bg-base-100 gap-6
-       mb-10 border border-base-200 rounded-sm overflow-hidden w-full mx-auto">
-        
-                    
+    <div class="stats stats-vertical sm:stats-horizontal bg-white w-full
+           border-gray-200 rounded-xl  overflow-hidden gap-5">
       <!-- Total -->
-      <div class="stat place-items-center py-6 border-2 border-base-300">
-    <div class="stat-title text-base-content/70 text-[#323B49]">Total</div>
-      <div class="stat-value text-4xl font-extrabold text-primary text-[#002C5C]" id="total">8</div>
+      <div class="stat place-items-center py-6 border-2 border-gray-200 rounded-xl">
+        <div class="stat-title text-gray-800 font-semibold">Total</div>
+        <div class="stat-value text-4xl sm:text-5xl font-extrabold text-[#002C5C]" id="total">8</div>
       </div>
 
-     <!-- Interview -->
-     <div class="stat place-items-center py-6 border-2 border-base-300">
-    <div class="stat-title text-base-content/70 text-[#323B49]">Interview</div>
-    <div class="stat-value text-4xl font-extrabold text-success" id="interview-count">0</div>
-     </div>
+      <!-- Rejected -->
+      <div class="stat place-items-center py-6 border-2 border-gray-200  rounded-xl">
+        <div class="stat-title text-gray-800 font-semibold">Rejected</div>
+        <div class="stat-value text-4xl sm:text-5xl font-extrabold text-[#EF4444]" id="rejected-count">0</div>
+      </div>
+      
+      <!-- Interview -->
+      <div class="stat place-items-center py-6 border-2 border-gray-200  rounded-xl">
+        <div class="stat-title text-gray-800 font-semibold">Interview</div>
+        <div class="stat-value text-4xl sm:text-5xl font-extrabold text-[#10B981]" id="interview-count">0</div>
+      </div>
 
-    <!-- Rejected -->
-    <div class="stat place-items-center py-6 border-2 border-base-300">
-    <div class="stat-title text-base-content/70 text-[#323B49]">Rejected</div>
-    <div class="stat-value text-4xl font-extrabold text-error" id="rejected-count">0</div>
+      
+
+    </div>
+  </header>
+
+  <!-- Jobs Section -->
+  <section>
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-3">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-[#002C5C]">Available Jobs</h2>
+      <span id="jobs-count" class="text-[#323B49] text-lg font-medium">8 jobs</span>
     </div>
 
-     </div>
-
-   </header>
-
-
-   <section>
-
-    <div class="flex justify-between items-center mb-4">
-        <h2 class="text-2xl font-semibold text-[#002C5C]">Available Jobs</h2>
-        <span id="jobs-count" class="text-gray-600">8 jobs</span>
+    <!-- Tabs -->
+    <div role="tablist" class="tabs tabs-boxed  p-1 rounded-lg mb-6 w-full sm:w-auto">
+      <a role="tab" class="tab tab-active bg-primary text-[#64748B] font-medium 
+        px-6 btn-soft btn-primary " data-tab="all" onclick="setTab('all')">All</a>
+      <a role="tab" class="tab  px-6 font-medium " data-tab="interview" onclick="setTab('interview')">Interview</a>
+      <a role="tab" class="tab px-6 font-medium " data-tab="rejected" onclick="setTab('rejected')">Rejected</a>
     </div>
 
-    <div class="tabs mb-4 gap-2">
-        <a class="tab tab-bordered tab-active text-gray-700 btn btn-soft btn-primary
-              hover:bg-indigo-700  w-[80px]" data-tab="pending" 
-        onclick="setTab('pending')">All</a>
-        <a class="tab tab-bordered text-gray-700 btn btn-soft btn-primary
-              hover:bg-indigo-700   w-[80px]" data-tab="interview" 
-        onclick="setTab('interview')">Interview</a>
-        <a class="tab tab-bordered text-gray-700 btn btn-soft btn-primary
-              hover:bg-indigo-700   w-[80px]" data-tab="rejected" 
-        onclick="setTab('rejected')">Rejected</a>
-    </div>
+    <div id="jobs-container" class="grid grid-cols-1 gap-5"></div>
+  </section>
 
-    <div id="jobs-container" class="grid grid-cols-1 gap-4"></div>
+</div>
 
-    </section>
 
 
     <script src="./js/script.js"></script>
 </body>
 
 </html>
+
+
