@@ -71,6 +71,23 @@
    </header>
 
 
+   <section>
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-semibold text-[#002C5C]">Available Jobs</h2>
+        <span id="jobs-count" class="text-gray-600">8 jobs</span>
+    </div>
+
+    <div class="tabs mb-4">
+        <a class="tab tab-bordered tab-active" data-tab="pending" onclick="setTab('pending')">All</a>
+        <a class="tab tab-bordered" data-tab="interview" onclick="setTab('interview')">Interview</a>
+        <a class="tab tab-bordered" data-tab="rejected" onclick="setTab('rejected')">Rejected</a>
+    </div>
+
+    <div id="jobs-container" class="grid grid-cols-1 gap-4"></div>
+
+    </section>
+
+
     <script src="./js/script.js"></script>
 </body>
 
